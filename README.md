@@ -9,9 +9,9 @@ CROAuth2Client relies on [Alamofire](https://github.com/Alamofire/Alamofire), fr
 
 It is added as a submodule in this repository.
 
-To use correctly CROAuth2Client, please add it as a submodule :
+To use correctly CROAuth2Client, please add it as a submodule:
 
-- Import the library :
+- Import the library:
 ```
 git submodule init 
 git submodule add git@github.com:crousselle/SwiftOAuth2.git 
@@ -20,27 +20,27 @@ git submodule update --init --recursive
 ```
 - Update ```CRCredentialsHelper``` with your values 
 
-Please follow instructions at https://github.com/Alamofire/Alamofire to setup Alamofire in your project.
+Please follow instructions at https://github.com/Alamofire/Alamofire to set up Alamofire in your project.
 
 #Usage 
 
-You first need to create a CROAuth2Client object via the following method :
+You first need to create a CROAuth2Client object via the following method:
 
 ```swift
 // From a UIViewController (used to present the authentication webview if necessary)
 CROAuth2Client.clientWithPresentingController(self)
 ```
 
-Then simply  query the access token 
+Then simply query the access token:
 
 ```swift
- self.client!.retrieveAuthToken({ (authToken) -> Void in
-            
-            if let optionnalAuthToken = authToken {
-                println("Received access token " + optionnalAuthToken)
-            }
-            
-        })
+self.client!.retrieveAuthToken({ (authToken) -> Void in
+       
+        if let authToken = authToken {
+            println("Received access token " + authToken)
+        }
+       
+    })
 ```
 The client will automatically return a valid token from the authentication server, or the keychain.
 
